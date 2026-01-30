@@ -1,3 +1,9 @@
+# Video Demo Link:
+https://drive.google.com/file/d/1Msl_WpaVWK1_xr6lZcgdyaXPeBq7GNm2/view?usp=sharing
+
+# Colab Code Notebook Link:
+https://colab.research.google.com/drive/1Zl3pvjNsA_pLj-_FLyaSf88YcznXJqTd?usp=sharing
+
 # OPD Token Allocation Engine
 
 A robust, priority based appointment management system designed for hospital Outpatient Departments (OPD). This engine handles elastic capacity, multiple booking sources, and real-time emergency insertions using a sophisticated queuing algorithm.
@@ -98,10 +104,10 @@ python app.py
   "category": "PAID"
 }
 
-### Get Live Queue
-**Endpoint:** GET /api/queue?doctor=Dr. Smith&slot=09:00-10:00
+Get Live Queue
+Endpoint: GET /api/queue?doctor=Dr. Smith&slot=09:00-10:00
 
-**Returns:** A sorted list of patients based on the priority algorithm.
+Returns: A sorted list of patients based on the priority algorithm.
 
 
 
