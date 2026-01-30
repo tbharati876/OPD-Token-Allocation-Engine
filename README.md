@@ -45,32 +45,49 @@ The core logic utilizes a **Min-Heap** data structure ($O(\log n)$ insertion). T
 - Install dependencies
 
 Bash
+
 pip install flask pyngrok pytz
+
 Configure Ngrok Update the NGROK_TOKEN in the script with your token from ngrok.com.
 - Run the Application
 
 Bash
+
 python app.py
 
 ## Edge Case Handling
-- Slot Saturation: Standard bookings are capped at 5 patients per slot. If a user attempts to book a 6th patient, the system returns an error unless the category is "EMERGENCY".
+- Slot Saturation:
 
-- Timezone Integrity: By using pytz, the system avoids "server time" drift, ensuring "Arrival Time" is always consistent with the hospital's local time (IST).
+  Standard bookings are capped at 5 patients per slot. If a user attempts to book a 6th patient, the system returns an error unless the category is "EMERGENCY".
 
-- Concurrency: The heap based sorting ensures that even if two patients are added within seconds, their position in the queue is mathematically determined and stable.
+- Timezone Integrity:
+
+  By using pytz, the system avoids "server time" drift, ensuring "Arrival Time" is always consistent with the hospital's local time (IST).
+
+- Concurrency:
+
+  The heap based sorting ensures that even if two patients are added within seconds, their position in the queue is mathematically determined and stable.
 
 ## Future Roadmap
-- Persistence: Migration from in-memory storage to SQLite or Redis to prevent data loss on restarts.
+- Persistence:
 
-- Cancellation Flow: Implementing a DELETE method to remove patients and instantly re-calculate the queue.
+  Migration from in-memory storage to SQLite or Redis to prevent data loss on restarts.
 
-- Doctor's "Next" Button: A specialized UI for doctors to "Pop" the top patient from the heap once the consultation is finished.
+- Cancellation Flow:
 
-- SMS Integration: Automated alerts via Twilio when a patient's position is within the next 2 spots.
+  Implementing a DELETE method to remove patients and instantly re-calculate the queue.
+
+- Doctor's "Next" Button:
+
+  A specialized UI for doctors to "Pop" the top patient from the heap once the consultation is finished.
+
+- SMS Integration:
+
+  Automated alerts when a patient's position is within the next 2 spots.
 
 ## API Reference
 
-### 1. Book a Token
+### Book a Token
 **Endpoint:** `POST /api/book`  
 **Payload:**
 ```json
@@ -80,10 +97,12 @@ python app.py
   "name": "Rajesh Kumar",
   "category": "PAID"
 }
-2. Get Live Queue
-Endpoint: GET /api/queue?doctor=Dr. Smith&slot=09:00-10:00
+
+### Get Live Queue
+**Endpoint:** GET /api/queue?doctor=Dr. Smith&slot=09:00-10:00
+
+**Returns:** A sorted list of patients based on the priority algorithm.
 
 
 
-Returns: A sorted list of patients based on the priority algorithm.
 
