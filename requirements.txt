@@ -1,0 +1,4 @@
+Flask==3.0.0
+pyngrok==7.1.2
+pytz==2024.1
+werkzeug==3.0.1
