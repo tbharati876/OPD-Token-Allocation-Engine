@@ -1,8 +1,3 @@
-# Video Demo Link:
-https://drive.google.com/file/d/1Msl_WpaVWK1_xr6lZcgdyaXPeBq7GNm2/view?usp=sharing
-
-# Colab Code Notebook Link:
-https://colab.research.google.com/drive/1Zl3pvjNsA_pLj-_FLyaSf88YcznXJqTd?usp=sharing
 
 # OPD Token Allocation Engine
 
